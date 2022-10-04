@@ -6,8 +6,6 @@ import router from './router'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
-import './assets/main.css'
-
 const app = createApp(App)
 
 // 状态管理
