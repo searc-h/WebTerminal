@@ -8,7 +8,7 @@ declare namespace Terminal{
 
     // outputList 用于在终端中展示
     interface OutputType{
-        type : 'command' | "text" | "commponent",
+        type : 'command' | "text" | "component",
         text? : string,
         resultList? : OutputType[],
         component? : any,
@@ -60,7 +60,7 @@ declare namespace Terminal{
         immediatelyWriteText : (text:string , status?:OutputStatusType)=>void
 
         // 输出命令结果--文本类型(状态未知)
-        writeTextResult: (text:string , status?:OutputStatusType)=>void
+        writeTextResult?: (text:string , status?:OutputStatusType)=>void
 
         // 输出命令结果--错误文本类型
         writeTextErrorResult : (text :string) => void
@@ -69,7 +69,7 @@ declare namespace Terminal{
         writeTextSuccessResult : (text:string )=>void
 
         // 输出命令结果--command或者component类型
-        writeResult :(output:OutputType)=>void
+        writeResult :(output:OutputType | ComponentOutputType)=>void
 
         // 输入框聚焦
         focusInput : () => void

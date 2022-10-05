@@ -53,6 +53,15 @@ export const shortcutsList: ShortcutType[] = [
         },
     },
     {
+        code: "Enter",
+        desc: "执行命令",
+        keyDesc: "Tab",
+        action(e, terminal) {
+          terminal.focusInput();
+          terminal.doSubmitCommand()
+        },
+    },
+    {
         code: "ArrowUp",
         desc: "查看上一条命令",
         keyDesc: "↑",

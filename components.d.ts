@@ -7,6 +7,10 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ACollapse: typeof import('ant-design-vue/es')['Collapse']
+    ACollapsePanel: typeof import('ant-design-vue/es')['CollapsePanel']
+    AInput: typeof import('ant-design-vue/es')['Input']
+    ATag: typeof import('ant-design-vue/es')['Tag']
     ContentOutput: typeof import('./src/components/Content/ContentOutput.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

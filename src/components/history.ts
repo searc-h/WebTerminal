@@ -20,6 +20,7 @@ const useHistory = (
     }
 
     const showNextCommand = ()=>{
+        console.log("查看下一条")
         // 当前下标等于总长度时，就不能继续查找，并显示正在输入的命令
         /**
          * [
@@ -48,9 +49,10 @@ const useHistory = (
     }
 
     const showPrevCommand = ()=>{
-        // 当前处于第一条命令记录
+        console.log( currentCommandPos.value , inputingCommand.value.text)
+        // 当前处于第一条命令记录 
         if(currentCommandPos.value === 0){
-            inputingCommand.value = commandList[0]
+            inputingCommand.value.text = commandList[0] ? commandList[0].text:""  // 解决第一个元素为undefine时的初始状态bug
             return
         }else{
             currentCommandPos.value--
