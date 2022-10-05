@@ -6,7 +6,7 @@ import CommandInputType = Terminal.CommandInputType;
 // 查看历史记录
 /**
  * @param commandList 
- * @param inputingCommand 
+ * @param inputingCommand  注意这里传的是Ref类型，因为这里也是可以直接改变输入框的值的
  */
 const useHistory = (
     commandList: CommandOutputType[],
@@ -27,18 +27,35 @@ const useHistory = (
          *   1..
          *   2..
          *   3..  --长度为4
-         *   正在输入
+         *     4.正在输入
          * ]
          */
-        currentCommandPos.value++
-        
-        if(currentCommandPos.value === commandList.length){
 
+        // 当前处于正在输入
+        if(currentCommandPos.value === commandList.length){
+            return
+        }
+
+        // 当前处于最后一条命令记录
+        else if(currentCommandPos.value === commandList.length - 1){
+            currentCommandPos.value++
+            inputingCommand.value.text = ""
+        }
+        else{
+            currentCommandPos.value++
+            inputingCommand.value.text = commandList[currentCommandPos.value].text
         }
     }
 
     const showPrevCommand = ()=>{
-
+        // 当前处于第一条命令记录
+        if(currentCommandPos.value === 0){
+            inputingCommand.value = commandList[0]
+            return
+        }else{
+            currentCommandPos.value--
+            inputingCommand.value.text = commandList[currentCommandPos.value].text
+        }
     }
 
 
