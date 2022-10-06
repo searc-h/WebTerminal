@@ -1,6 +1,12 @@
 # webTerminal
+    - Vue3 + Ts + vite +antD
+    - 实现你想实现的指令
+    - 回车即可执行
 
-This project is learned from YuTerminal
+## 灵感来源
+    - [鱼皮程序员]()
+
+## 
 
 
 
