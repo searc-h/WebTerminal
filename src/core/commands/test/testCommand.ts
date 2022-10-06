@@ -27,7 +27,7 @@ const testCommand :CommandType= {
             key:"self",
             alias:["s"],
             type:"boolean",
-            defaultValue:true
+            defaultValue: false
         },
         
     ],
@@ -35,13 +35,14 @@ const testCommand :CommandType= {
 
         const { _ , from, to , self } = options;
 
-        console.log("_ is" , _)
         terminal.setCommandCollapsible(true)
-        const output: ComponentOutputType = {
-            type: "component",
-            component: shallowRef(defineAsyncComponent(() => import("./Test.vue"))) ,
-            props: {from , to , self},
-          };
+        const output: ComponentOutputType[] =[
+            {
+                type: "component",
+                component: shallowRef(defineAsyncComponent(() => import("./Test.vue"))) ,
+                props: {from , to , self},
+            }
+        ]
         terminal.writeResult(output);
     }
 }

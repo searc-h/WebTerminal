@@ -1,19 +1,21 @@
 <template >
-    <div class="content-output">
-      内容
+    <div class="content-output" >
         <template v-if="output.type === 'text'">
             <a-tag v-if="outputTagColor" :color="outputTagColor"
                 >{{ output.status }}
             </a-tag>
             <span v-if="output.type === 'text'"  />
         </template>
+        <span>{{output.text}}</span>
+        <!-- <span>from : {{output.props.from}}</span> \
+        <span>to : {{output.props.to}}</span> \
+        <span>self : {{output.props.self}}</span> -->
         <component :is="output.component" 
         v-if="output.type === 'component'"
         v-bind="output.props ?? {}"></component>
     </div>
 </template>
 <script lang="ts" setup>
-import { defineProps } from 'vue';
 import OutputType = Terminal.OutputType;
 import { computed, toRefs } from "vue";
 

@@ -2,10 +2,9 @@ import TerminalType = Terminal.TerminalType
 
 
 interface ShortcutType {
-
     code: string; // 按键码  ctrl + o
-    desc?: string; // 功能描述  折叠
-    keyDesc?: string; // 按键描述  
+    desc: string; // 功能描述  折叠
+    keyDesc: string; // 按键描述  
     ctrlKey?: boolean; //是否需要ctrl
     metaKey?: boolean;
     shiftKey?: boolean;

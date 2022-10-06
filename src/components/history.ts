@@ -12,7 +12,6 @@ const useHistory = (
     commandList: CommandOutputType[],
     inputingCommand : Ref<CommandInputType>
 )=>{
-
     const currentCommandPos = ref(commandList.length)
 
     const showCommandList = ()=>{
@@ -60,12 +59,17 @@ const useHistory = (
         }
     }
 
+    const clearCommandList = ()=>{
+        commandList.splice(0) //注意这里
+        currentCommandPos.value = 0
+    }
 
     return {
         currentCommandPos,
         showCommandList,
         showNextCommand,
-        showPrevCommand
+        showPrevCommand,
+        clearCommandList
     }
 
 }

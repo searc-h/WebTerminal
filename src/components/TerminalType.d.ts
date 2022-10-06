@@ -60,16 +60,16 @@ declare namespace Terminal{
         immediatelyWriteText : (text:string , status?:OutputStatusType)=>void
 
         // 输出命令结果--文本类型(状态未知)
-        writeTextResult?: (text:string , status?:OutputStatusType)=>void
+        writeTextResult: (text:string , status?:OutputStatusType)=>void
 
         // 输出命令结果--错误文本类型
         writeTextErrorResult : (text :string) => void
         
         // 输出命令结果--成功文本类型
-        writeTextSuccessResult : (text:string )=>void
+        writeTextSuccessResult : (text:string  )=>void
 
         // 输出命令结果--command或者component类型
-        writeResult :(output:OutputType | ComponentOutputType)=>void
+        writeResult :(output:OutputType[] | ComponentOutputType[])=>void
 
         // 输入框聚焦
         focusInput : () => void
@@ -79,8 +79,8 @@ declare namespace Terminal{
         // 查看上一条命令 -- 历史记录
         showPrevCommand: () => void;
         // 查看历史记录
-        showCommandList : ()=>void
-
+        showCommandList : ()=>OutputType[]
+        clearCommandList :()=>void
         // 折叠 / 展开 或有可折叠块
         toggleAllCollapse: () => void;
         // 设置命令是否可折叠
