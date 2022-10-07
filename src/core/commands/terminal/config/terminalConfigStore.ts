@@ -44,7 +44,13 @@ export const TerminalStore = defineStore("TerminalStore" , {
         },
 
         reset() {
-            this.$reset();
+            let result = true
+                try {
+                    this.$reset()
+                } catch (error) {
+                    result = false
+                }
+            return result
         },
     }
 

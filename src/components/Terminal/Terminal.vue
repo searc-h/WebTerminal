@@ -246,7 +246,7 @@ defineExpose({
     width: 100vw;
     height: 100vh;
     background-color: rgb(8, 8, 8);
-    background: url("https://tva2.sinaimg.cn/large/9bd9b167gy1g4lhiletmbj21hc0xcndu.jpg");
+    background: url("https://tva3.sinaimg.cn/large/9bd9b167gy1fwrtj8yybqj21hc0u0avv.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
