@@ -66,7 +66,7 @@
 
             <!-- 输入提示-->
             <div v-if="true" class="terminal-row" style="color: #bbb;margin-left: 5px;">
-                hint：{{ "提示" }}
+                hint：{{ hint }}
             </div>
 
             <!-- 底部间距 -->
@@ -86,6 +86,7 @@ import ContentOutput from '@/components/Content/ContentOutput.vue'
 
 import { registerShortcuts } from '../shortcuts';
 import useHistory from '../history';
+import { useHint } from '../hint'
 
 import { ref, Ref, onMounted, watchEffect } from 'vue';
 
@@ -127,7 +128,12 @@ let {
     showPrevCommand,
     clearCommandList
      } = useHistory(commandList.value, inputingCommand)
+// 提示
+let {hint ,setHint ,debounceSetHint} = useHint()
 
+watchEffect(()=>{
+    debounceSetHint(inputingCommand.value.text)
+})
 
 let activeKeys = ref<number[]>([1, 2])
 let toggleAllCollapse = () => {
@@ -148,7 +154,9 @@ let focusInput = () => {
 }
 
 let terminalRef = ref()
+
 let doSubmitCommand = () => {
+    setHint("")
     let output: OutputType = {
         type: "command",
         text: inputingCommand.value.text,

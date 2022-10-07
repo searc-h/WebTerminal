@@ -4,6 +4,7 @@ export const historyCommand :CommandType = {
     func : "history",
     name : "历史记录",
     desc : "查看历史记录",
+    alias:["his"],
     options : [
         {
             key:"clear",

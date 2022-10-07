@@ -5,6 +5,7 @@ export const hintCommand : CommandType = {
     func : "hint",
     name : "提示",
     desc : "开启/关闭提示 on:开启  off:关闭  默认反转",
+    alias:["hin"],
     params : [
         {
             key:"choice",
@@ -18,21 +19,13 @@ export const hintCommand : CommandType = {
     action: (options , terminal)=>{
         let TerminalStore =  useTerminalStore()
         let {_} = options
-        if(_.length > 0){
-            if(_[0]==='on'){
-                TerminalStore.setOrToggleShowHint("on")
-                terminal.writeTextSuccessResult("已经开启提示，刷新页面后查看效果")
-            }else{
-                TerminalStore.setOrToggleShowHint("off")
-                terminal.writeTextSuccessResult("已经关闭提示，刷新页面后查看效果")
-            }
+
+        if(["on" , "off"].includes(_[0])){
+            TerminalStore.setOrToggleShowHint(_[0])
+            terminal.writeTextSuccessResult(`已经${_[0]==='on'?"开启":"关闭"}提示，刷新页面后查看效果`)
         }else{
-            if(TerminalStore.setOrToggleShowHint()){
-                terminal.writeTextSuccessResult("已经开启提示，刷新页面后查看效果")
-            }
-            else{
-                terminal.writeTextSuccessResult("已经关闭提示，刷新页面后查看效果")
-            }
+            let tag = TerminalStore.setOrToggleShowHint()
+            terminal.writeTextSuccessResult(`已经${tag?"开启":"关闭"}提示，刷新页面后查看效果`)
         }
     }
 }

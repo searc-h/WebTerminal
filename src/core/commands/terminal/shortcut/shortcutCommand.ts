@@ -7,7 +7,7 @@ export const shortcutCommand :CommandType= {
     func : "shortcut",
     name : "快捷键",
     desc : "查看所有快捷键",
-    alias : ["stct"],
+    alias : ["stct","sh"],
     options :[],
     params:[],
     action : (options , terminal)=>{

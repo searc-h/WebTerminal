@@ -6,6 +6,7 @@ import OutputType  = Terminal.OutputType
 export const helpCommand :CommandType = {
     func : "help",
     name : "查看所有命令",
+    alias:["he"],
     options : [],
     params : [
         {

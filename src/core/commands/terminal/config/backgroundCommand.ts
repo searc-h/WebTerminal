@@ -6,7 +6,7 @@ export const backgroundCommand :CommandType = {
     func : "background",
     name : "背景",
     desc : "切换背景图片",
-    alias : ["bg"],
+    alias : ["bg","back"],
     options : [],
     params :[
         {

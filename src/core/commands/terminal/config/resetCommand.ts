@@ -4,6 +4,7 @@ export const resetCommand :CommandType= {
     func : "reset",
     name : "重置",
     desc : "重置终端配置",
+    alias:["res"],
     options :[],
     params : [],
     action :  (options , terminal)=>{
