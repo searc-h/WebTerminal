@@ -9,6 +9,7 @@ export const shortcutCommand :CommandType= {
     desc : "查看所有快捷键",
     alias : ["stct"],
     options :[],
+    params:[],
     action : (options , terminal)=>{
         terminal.setCommandCollapsible(true)
 

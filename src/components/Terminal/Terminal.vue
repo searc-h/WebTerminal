@@ -64,6 +64,11 @@
                 </a-input>
             </div>
 
+            <!-- 输入提示-->
+            <div v-if="true" class="terminal-row" style="color: #bbb;margin-left: 5px;">
+                hint：{{ "提示" }}
+            </div>
+
             <!-- 底部间距 -->
             <div style="margin-bottom: 16px" />
         </div>

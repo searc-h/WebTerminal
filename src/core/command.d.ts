@@ -10,8 +10,8 @@ interface CommandType {
     name : string,  // 中文名称 --- 用于help查看
     desc : string,  // 中文描述 --- 用于help查看
     alias? : string[] // 英文别名 --- 用于action执行
-    options? : CommandOptionType[],
-    params? : CommandParamsType[],
+    options : CommandOptionType[],
+    params : CommandParamsType[],
     // subCommands : Record<string, CommandType>,
     collapsible?:boolean // 是否可伸缩隐藏
 

@@ -15,17 +15,20 @@ const testCommand :CommandType= {
     options:[
         {
             key:"from",
+            desc:"从哪个开始",
             alias:["f"],
             type:"string"
         },
         {
             key:"to",
+            desc:"去哪里",
             alias:["t"],
             type:"string"
         },
         {
             key:"self",
             alias:["s"],
+            desc:"是否自身打开",
             type:"boolean",
             defaultValue: false
         },
