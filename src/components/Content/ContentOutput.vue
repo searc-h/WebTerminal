@@ -1,10 +1,10 @@
 <template >
     <div class="content-output" >
         <template v-if="output.type === 'text'">
-            <a-tag v-if="outputTagColor" :color="outputTagColor"
+            <a-tag v-if="outputTagColor" :color="outputTagColor" style="font-size: 15px;"
                 >{{ output.status }}
             </a-tag>
-            <span v-if="output.type === 'text'"  />
+            <span v-if="output.type === 'text'"/>
         </template>
         <span>{{output.text}}</span>
         <!-- <span>from : {{output.props.from}}</span> \

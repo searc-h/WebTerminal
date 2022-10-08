@@ -1,5 +1,5 @@
 <template >
-    <div class="terminal-outer">
+    <div class="terminal-outer" :style="wrapperStyle">
         <div class="terminalInner" ref="terminalRef">
             <a-collapse v-model:activeKey="activeKeys" :bordered="false" expand-icon-position="right">
                 <template v-for="(output, index) in outputList" :key="index">
@@ -9,7 +9,7 @@
                         style="border-bottom: 1px solid pink">
                         <template #header>
                             <span style="user-select: none; margin-right: 20px; ">
-                                [---]
+                                [----]$
                             </span>
                             <span>{{ output.text }}</span>
                         </template>
@@ -26,7 +26,7 @@
                         <template v-if="output.type === 'command'">
                             <div class="terminal-row" >
                                 <span style="user-select: none; margin-right: 10px">
-                                    [---]
+                                    [----]$
                                 </span>
                                 <span>{{ output.text }}</span>
                             </div>
@@ -58,14 +58,14 @@
                 >
                     <template #addonBefore>
                         <span class="terminal-row">
-                            [---]
+                            [----]$
                         </span>
                     </template>
                 </a-input>
             </div>
 
             <!-- 输入提示-->
-            <div v-if="true" class="terminal-row" style="color: #bbb;margin-left: 5px;">
+            <div v-if="hint" class="terminal-row" style="color: #bbb;margin-left: 5px;">
                 hint：{{ hint }}
             </div>
 
@@ -88,7 +88,9 @@ import { registerShortcuts } from '../shortcuts';
 import useHistory from '../history';
 import { useHint } from '../hint'
 
-import { ref, Ref, onMounted, watchEffect } from 'vue';
+import { ref, Ref, onMounted, watchEffect , StyleValue ,computed } from 'vue';
+import { TerminalStore } from '../../core/commands/terminal/config/terminalConfigStore'
+
 
 interface TerminalProps {
     height?: string | number;
@@ -193,8 +195,12 @@ let clear = () => {
 let immediatelyWriteOuput = () => {
 
 }
-let immediatelyWriteText = () => {
-
+let immediatelyWriteText = (text:string) => {
+    let newOutput : OutputType ={
+        type:"text",
+        text
+    }
+    outputList.value.push(newOutput)
 }
 let writeTextResult = (text:string , status?:OutputStatusType) => {
     let newCommand :OutputType = {
@@ -221,6 +227,21 @@ const setCommandCollapsible = (collapsible: boolean) => {
     currenCommand.collapsible = collapsible;
 };
 
+
+
+const wrapperStyle = computed(() => {
+    let {background} = TerminalStore()
+        // 给元素设置样式
+    const style :StyleValue= {
+    };
+    if (background.startsWith("http")) {
+        style.background = `url(${background})`;
+    } else {
+        style.background = background;
+    }
+    return style;
+});
+
 const terminal: TerminalType = {
     clear,
     toggleAllCollapse,
@@ -239,9 +260,23 @@ const terminal: TerminalType = {
     clearCommandList
 }
 
-
+const placeholderList = [
+  "输入help可以查看所有指令",
+  "指令 --help 可以查看该指令的用法以及介绍"
+]
+const changePlaceholder = ()=>{
+    inputingCommand.value.placeholder = placeholderList[Math.floor(Math.random()*2)]
+    setTimeout(() => {
+      changePlaceholder()
+    }, 3000);
+}
 onMounted(() => {
     registerShortcuts(terminal as TerminalType)
+
+    terminal.immediatelyWriteText("This web Terminal is Just mean To improve My coding Level and For fun")
+    terminal.immediatelyWriteText("And you can Learn more From YuIndex ")
+
+    changePlaceholder()
 })
 
 // 向父组件暴露方法或属性
@@ -254,14 +289,17 @@ defineExpose({
     width: 100vw;
     height: 100vh;
     background-color: rgb(8, 8, 8);
-    background: url("https://tva3.sinaimg.cn/large/9bd9b167gy1fwrtj8yybqj21hc0u0avv.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .terminalInner {
     background-color: rgba(0, 0, 0, 0.6);
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     padding: 20px;
     overflow: scroll;
 }

@@ -20,16 +20,13 @@ export const backgroundCommand :CommandType = {
         let TerminalStore = useTerminalStore()
 
         let {_} = options
-        // if(_.length > 0){
-        //     TerminalStore.setBackground(_[0])
-        // }
-        // if(_.length<1){
-            
-        //     let result = await myAxios({
-
-        //     })
-            
-        //     TerminalStore.setBackground(result.data.imgurl)
-        // }
+        if(_.length > 0){
+            TerminalStore.setBackground(_[0])
+            return
+        }
+        if(_.length<1){
+            let result = await myAxios.post("/background/get/random")
+            TerminalStore.setBackground(result.data)
+        }
     }
 }
