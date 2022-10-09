@@ -15,6 +15,9 @@ export const helpCommand :CommandType = {
         }
     ],
     desc : "查看所有命令",
+    subCommand : {
+        
+    },
     action : (options , terminal)=>{
 
         terminal.setCommandCollapsible(true)

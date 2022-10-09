@@ -15,6 +15,9 @@ export const backgroundCommand :CommandType = {
             required: false,
         }
     ],
+    subCommand : {
+        
+    },
     action : async (options , terminal)=>{
 
         let TerminalStore = useTerminalStore()

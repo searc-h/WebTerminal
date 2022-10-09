@@ -7,6 +7,9 @@ export const resetCommand :CommandType= {
     alias:["res"],
     options :[],
     params : [],
+    subCommand : {
+        
+    },
     action :  (options , terminal)=>{
         let TerminalStore = useTerminalStore()
         let result = TerminalStore.reset()

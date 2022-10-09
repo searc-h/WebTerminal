@@ -15,6 +15,9 @@ export const musicCommand:CommandType = {
             desc :"音乐名称",
         }
     ],
+    subCommand : {
+        
+    },
     collapsible: true,
     action : async (options , terminal)=>{
         let {_} = options

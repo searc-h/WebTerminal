@@ -15,6 +15,9 @@ export const historyCommand :CommandType = {
         }
     ],
     params : [],
+    subCommand : {
+        
+    },
     action: (options, terminal)=>{
         let {clear} = options
         if(clear){

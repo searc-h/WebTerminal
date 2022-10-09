@@ -15,7 +15,9 @@ export const hintCommand : CommandType = {
     ],
 
     options :[],
-
+    subCommand : {
+        
+    },
     action: (options , terminal)=>{
         let TerminalStore =  useTerminalStore()
         let {_} = options

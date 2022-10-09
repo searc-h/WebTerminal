@@ -10,6 +10,9 @@ export const shortcutCommand :CommandType= {
     alias : ["stct","sh"],
     options :[],
     params:[],
+    subCommand : {
+        
+    },
     action : (options , terminal)=>{
         terminal.setCommandCollapsible(true)
 

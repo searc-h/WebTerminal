@@ -14,6 +14,9 @@ export const timingCommand :CommandType= {
             type :"string"
         }
     ],
+    subCommand : {
+        
+    },
     params : [],
     action : (options , terminal)=>{
         

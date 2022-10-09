@@ -9,7 +9,7 @@ import { backgroundCommand } from "./commands/terminal/config/backgroundCommand"
 import { hintCommand } from "./commands/terminal/config/hintCommand";
 import { timingCommand } from "./commands/timing/timingCommand";
 import { musicCommand } from "./commands/relax/music/musicCommand";
-
+import { todoCommand } from "./commands/todo/todoCommand";
 
 const commandList :CommandType[] = [
     testCommand,
@@ -21,7 +21,8 @@ const commandList :CommandType[] = [
     backgroundCommand,
     hintCommand,
     timingCommand,
-    musicCommand
+    musicCommand,
+    todoCommand
 ]
 
 const commandMap : Record<string , CommandType> = {}

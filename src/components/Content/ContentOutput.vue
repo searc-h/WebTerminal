@@ -4,8 +4,9 @@
             <a-tag v-if="outputTagColor" :color="outputTagColor" style="font-size: 15px;"
                 >{{ output.status }}
             </a-tag>
+            <span v-if="output.type === 'text'" v-html="output.text" style="margin-bottom: 10px; display: inline-block;"></span>
         </template>
-        <span v-if="output.type === 'text'" v-html="output.text" style="margin-bottom: 10px; display: block;"></span>
+        
         <component :is="output.component" 
         v-if="output.type === 'component'"
         v-bind="output.props ?? {}"></component>

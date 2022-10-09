@@ -9,9 +9,15 @@ import TerminalType = Terminal.TerminalType;
  * @param text 
  * @param terminal 
  */
-export const doCommandExecute = async(text:string , terminal:TerminalType)=>{
+export const doCommandExecute = async(text:string , terminal:TerminalType , parentCommand?:CommandType)=>{
+
     let commandFunc:string = text.split(" ")[0]
     let command : CommandType = getCommand(commandFunc)
+    // 如果有父命令，说明是在执行子命令
+    if(parentCommand){
+        command = parentCommand.subCommand?.[commandFunc]
+    }
+
     if(!command){
         terminal.writeTextErrorResult("找不到命令");
         return
@@ -19,6 +25,13 @@ export const doCommandExecute = async(text:string , terminal:TerminalType)=>{
 
     const parsedOptions = doParse(text, command.options as CommandOptionType[]);
     const { _ } = parsedOptions;
+
+    // 如果有子命令 并且 第一个参数刚好是其中一个子命令 ，说明需要执行子命令 ，而非父命令
+    if(Object.keys(command.subCommand).length>0 && Object.keys(command.subCommand).includes(_[0])){
+        let subText = text.slice(text.indexOf(" ")+1) //截取子命令及其参数
+        await doCommandExecute(subText , terminal  , command)
+        return
+    }
 
     // 执行命令
     await doAction(command, parsedOptions, terminal);

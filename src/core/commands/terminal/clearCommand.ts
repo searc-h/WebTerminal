@@ -8,6 +8,9 @@ export const clearCommand :CommandType= {
     options :[],
     params:[],
     alias : ["cl"],
+    subCommand : {
+        
+    },
     action : (options , terminal)=>{
         terminal.clear()
     }

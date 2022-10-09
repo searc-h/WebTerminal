@@ -14,7 +14,7 @@ interface CommandType {
     params : CommandParamsType[],
     // subCommands : Record<string, CommandType>,
     collapsible?:boolean // 是否可伸缩隐藏
-
+    subCommand : Record<string, CommandType>  //是否有子命令
     action:(
         options:ParsedOption,
         terminal:TerminalType,

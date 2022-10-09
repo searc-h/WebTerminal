@@ -12,6 +12,9 @@ const testCommand :CommandType= {
             key:"who",
         }
     ],
+    subCommand : {
+        
+    },
     options:[
         {
             key:"from",
