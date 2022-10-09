@@ -1,12 +1,39 @@
 # webTerminal
-    - Vue3 + Ts + vite +antD
-    - 实现你想实现的指令
-    - 回车即可执行
+- Vue3 + Ts + vite +antD-V + pinia
+- 实现你想实现的指令
+- 回车即可执行
 
 ## 灵感来源
-    - [鱼皮程序员]()
+- [鱼皮程序员](https://github.com/liyupi/yuindex)
+- [我的实现](https://github.com/searc-h/webTerminal)
 
-## 
+## 学习心得
+### 1.Ts命名空间实现类型说明模块化 
+
+### 2.antD-V的基本使用
+
+### 3.防抖与节流实现
+
+### 4.getopt库的基本使用
+- option配置
+- 参数配置
+- 获取解析后的参数
+
+### 5.页面组件与指令分离的设计模式
+- defineAsyncComponent的使用
+- 指令的设计
+- 父子指令的调用关系
+
+### 6.store持久化
+
+### 7.StyleValue类型的使用
+
+### 8.自定义hooks
+- useHint
+- useHistory
+- useDebounce
+
+### 9.Porps参数的接受与默认值
 
 
 
