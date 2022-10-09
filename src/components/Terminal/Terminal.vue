@@ -274,8 +274,8 @@ onMounted(() => {
     registerShortcuts(terminal as TerminalType)
 
     terminal.immediatelyWriteText("This web Terminal is Just mean To improve My coding Level and For fun")
-    terminal.immediatelyWriteText("And you can Learn more From YuIndex ")
-
+    terminal.immediatelyWriteText("And you can Learn more From YuIndex <a href='https://github.com/liyupi/yuindex'>Github Address</a>")
+    terminal.immediatelyWriteText("And you can Also find Some differences From WebTerminal <a href='https://github.com/searc-h/webTerminal'>Github Address</a>")
     changePlaceholder()
 })
 
