@@ -14,8 +14,8 @@ export const todoCommand : CommandType = {
     subCommand : {
         add : addCommand
     },
-
     action :(options , terminal)=>{
+        terminal.setCommandCollapsible(true)
         let {todoList} = useTodoStore()
 
         let output : OutputType[] = [{

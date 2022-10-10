@@ -15,7 +15,7 @@ export const websiteCommand :CommandType = {
     params : [],
 
     action : (options ,terminal)=>{
-
+        terminal.setCommandCollapsible(true)
         let { websiteList } = useWebsiteStore()
 
         let output :OutputType[] = [{

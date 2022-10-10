@@ -7,17 +7,23 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AAvatar: typeof import('ant-design-vue/es')['Avatar']
     AButton: typeof import('ant-design-vue/es')['Button']
     ACard: typeof import('ant-design-vue/es')['Card']
     ACheckbox: typeof import('ant-design-vue/es')['Checkbox']
     ACol: typeof import('ant-design-vue/es')['Col']
     ACollapse: typeof import('ant-design-vue/es')['Collapse']
     ACollapsePanel: typeof import('ant-design-vue/es')['CollapsePanel']
+    AForm: typeof import('ant-design-vue/es')['Form']
+    AFormItem: typeof import('ant-design-vue/es')['FormItem']
     AInput: typeof import('ant-design-vue/es')['Input']
+    AInputPassword: typeof import('ant-design-vue/es')['InputPassword']
     AList: typeof import('ant-design-vue/es')['List']
     AListItem: typeof import('ant-design-vue/es')['ListItem']
     AListItemMeta: typeof import('ant-design-vue/es')['ListItemMeta']
+    AModal: typeof import('ant-design-vue/es')['Modal']
     ARow: typeof import('ant-design-vue/es')['Row']
+    ASkeleton: typeof import('ant-design-vue/es')['Skeleton']
     ATag: typeof import('ant-design-vue/es')['Tag']
     ContentOutput: typeof import('./src/components/Content/ContentOutput.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

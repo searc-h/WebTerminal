@@ -8,9 +8,16 @@ export const addCommand :CommandType = {
     desc :"添加网址",
     options : [
         {
+            key : "webname",
+            alias : ["n"],
+            type :"string",
+            required:true
+        },
+        {
             key : "weburl",
             alias : ["w"],
             type :"string",
+            required:true
         },
         {
             key : "imgurl",
@@ -26,14 +33,22 @@ export const addCommand :CommandType = {
     },
 
     action : (options , terminal)=>{
-        let {weburl ,imgurl} = options
-        if(!weburl){
+        let {weburl ,imgurl , webname} = options
+        if(!weburl ){
             terminal.writeTextErrorResult("缺少网址参数")
             return
+        }
+        if(!webname){
+            terminal.writeTextErrorResult("缺少网址名称")
+            return
+        }
+        if(!imgurl.trim()){
+            imgurl = 'https://joeschmoe.io/api/v1/random'
         }
 
         let  {addWebsiteItem} = useWebsiteStore()
         let newItem :websiteItem = {
+            webName : webname,
             webUrl : weburl,
             imgUrl : imgurl
         }
