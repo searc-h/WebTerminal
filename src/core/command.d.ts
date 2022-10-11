@@ -30,7 +30,7 @@ interface CommandParamsType {
 
 interface CommandOptionType {
     key : string 
-    alias? : string[]
+    alias : string[]
     desc?: string, // 参数描述 --- 用于--help
     type : "string" | 'boolean';
     defaultValue? : string | boolean | number,  // 默认值

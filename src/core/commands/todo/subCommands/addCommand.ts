@@ -10,6 +10,7 @@ export const addCommand : CommandType = {
         {
             key : "name",
             desc : "名称",
+            required : true
         }
     ],
     subCommand : {

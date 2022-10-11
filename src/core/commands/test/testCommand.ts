@@ -10,6 +10,8 @@ const testCommand :CommandType= {
     params:[
         {
             key:"who",
+            desc :"人物",
+            required : true
         }
     ],
     subCommand : {

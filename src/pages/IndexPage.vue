@@ -21,9 +21,7 @@ let onSubmitCommand =async (text :string )=>{
         return
     }
     await doCommandExecute(text , terminalRef.value.terminal)
-
 }
-
 
 
 </script>

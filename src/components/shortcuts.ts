@@ -20,6 +20,7 @@ export const shortcutsList: ShortcutType[] = [
         action(e, terminal) {
             e.preventDefault();
             terminal.clear();
+            terminal.focusInput()
         },
     },
     {
@@ -30,16 +31,6 @@ export const shortcutsList: ShortcutType[] = [
         action(e, terminal) {
             e.preventDefault();
             terminal.toggleAllCollapse()
-        },
-    },
-    {
-        code: "KeyV",
-        desc: "粘贴",
-        keyDesc: "Ctrl + V",
-        ctrlKey: true,
-        action(e, terminal) {
-            e.preventDefault();
-            terminal.focusInput();
         },
     },
     {

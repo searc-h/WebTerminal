@@ -11,12 +11,12 @@ export const timingCommand :CommandType= {
         {
             key:"seconds",
             alias:["s"],
-            type :"string"
-        }
+            type :"string",
+            desc : "秒数",
+            required : true
+        },
     ],
-    subCommand : {
-        
-    },
+    subCommand : {},
     params : [],
     action : (options , terminal)=>{
         

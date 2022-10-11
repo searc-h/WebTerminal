@@ -1,54 +1,54 @@
 <template>
     <div style="margin: 8px 0; max-width: 1000px">
 
-    <a-modal v-model:visible="visible" title="添加网址到收录" centered @ok="handleOk">
-        <a-form
-            :model="formState"
-            name="basic"
-            :label-col="{ span: 5 }"
-            :wrapper-col="{ span: 16 }"
-            autocomplete="off"
-            @finish="onFinish"
-            @finishFailed="onFinishFailed"
-        >
-            <a-form-item
-                label="网址名称"
-                name="webName"
-                :rules="[{ required: true, message: 'Please input your 名称!' }]"
-                >
-                <a-input v-model:value="formState.webName" />
-            </a-form-item>
-
-            <a-form-item
-                label="网址地址"
-                name="webUrl"
-                :rules="[{ required: true, message: 'Please input your 网址地址!' }]"
-                >
-                <a-input v-model:value="formState.webUrl" />
-            </a-form-item>
-
-            <a-form-item
-                label="网址图标"
-                name="imgUrl"
-                >
-                <a-input v-model:value="formState.imgUrl" />
-                </a-form-item>
-                <a-form-item
-                label="网站描述"
-                name="desc"
+        <a-modal v-model:visible="visible" title="添加网址到收录" centered @ok="handleOk">
+            <a-form
+                :model="formState"
+                name="basic"
+                :label-col="{ span: 5 }"
+                :wrapper-col="{ span: 16 }"
+                autocomplete="off"
+                @finish="onFinish"
+                @finishFailed="onFinishFailed"
             >
-                <a-input v-model:value="formState.desc" />
-            </a-form-item>
+                <a-form-item
+                    label="网址名称"
+                    name="webName"
+                    :rules="[{ required: true, message: 'Please input your 名称!' }]"
+                    >
+                    <a-input v-model:value="formState.webName" />
+                </a-form-item>
 
-            <a-form-item :wrapper-col="{ offset: 17, span: 16 }">
-                <a-button type="primary" html-type="submit">添加</a-button>
-            </a-form-item>
-        </a-form>
+                <a-form-item
+                    label="网址地址"
+                    name="webUrl"
+                    :rules="[{ required: true, message: 'Please input your 网址地址!' }]"
+                    >
+                    <a-input v-model:value="formState.webUrl" />
+                </a-form-item>
 
-        <template #footer>
-        </template>
+                <a-form-item
+                    label="网址图标"
+                    name="imgUrl"
+                    >
+                    <a-input v-model:value="formState.imgUrl" />
+                    </a-form-item>
+                    <a-form-item
+                    label="网站描述"
+                    name="desc"
+                >
+                    <a-input v-model:value="formState.desc" />
+                </a-form-item>
 
-    </a-modal>
+                <a-form-item :wrapper-col="{ offset: 17, span: 16 }">
+                    <a-button type="primary" html-type="submit">添加</a-button>
+                </a-form-item>
+            </a-form>
+
+            <template #footer>
+            </template>
+
+        </a-modal>
 
       <a-card :body-style="{'padding':'0 20px'}" title="网址收录" class="card-outer">
 
@@ -63,10 +63,10 @@
             <a-list-item class="item-outer" >
                 <a-card hoverable >
                     <a-list-item-meta
-                        description="网址介绍"
+                        :description="item.desc || '暂未添加介绍'"
                     >
                         <template #title>
-                            <a :href="item.webUrl" target="_blank" ><span>{{item.webName?"你好":"我的"}}</span></a>
+                            <a :href="item.webUrl" target="_blank" ><span>{{item.webName}}</span></a>
                         </template>
 
                         <template #avatar>

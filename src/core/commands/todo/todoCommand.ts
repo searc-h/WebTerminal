@@ -12,7 +12,7 @@ export const todoCommand : CommandType = {
     options :[],
     params :[],
     subCommand : {
-        add : addCommand
+        add : addCommand,
     },
     action :(options , terminal)=>{
         terminal.setCommandCollapsible(true)
