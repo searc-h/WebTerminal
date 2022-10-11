@@ -23,7 +23,7 @@ export const helpCommand :CommandType = {
         terminal.setCommandCollapsible(true)
 
         let {_} = options
-
+        // 直接展示helpBox
         if(_.length < 1){
             let output :OutputType[] = [
                 {
@@ -35,6 +35,7 @@ export const helpCommand :CommandType = {
             return
         }
 
+        // 展示commandHelp
         let command = commandMap[_[0]]
 
         if (!command) {
@@ -43,7 +44,7 @@ export const helpCommand :CommandType = {
         }
 
         // 有可能有子命令
-        if(Object.keys(command.subCommand).length>=1 && _.length>=2){
+        if(Object.keys(command.subCommand).length>=1 && Object.keys(command.subCommand).includes(_[1])){
             command = command.subCommand[_[1]]
         }
 

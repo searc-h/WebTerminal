@@ -1,5 +1,7 @@
 import getopts, { ParsedOptions } from "getopts";
-
+import { helpCommand } from "./commands/terminal/help/helpCommand";
+import OutputType = Terminal.OutputType
+import {defineAsyncComponent , shallowRef} from 'vue'
 import { commandMap } from "./commandRegister";
 import { CommandOptionType, CommandType } from "./command";
 import TerminalType = Terminal.TerminalType;
@@ -125,7 +127,22 @@ const doParse = (text:string, commandOptions:CommandOptionType[]): getopts.Parse
     return parsedOptions
 }
 
-const doAction = async (command:CommandType , parsedOptions:ParsedOptions , terminal:TerminalType)=>{
-    await command.action(parsedOptions, terminal);
+const doAction =  (command:CommandType , parsedOptions:ParsedOptions , terminal:TerminalType)=>{
+    let {help = false} = parsedOptions
+    if(help){
+        let output :OutputType[]= [
+            {
+                type:"component",
+                component:shallowRef(defineAsyncComponent(()=>import("./commands/terminal/help/commandHelp.vue"))),
+                props:{
+                    command
+                }
+            }
+        ]
+
+        terminal.writeResult(output)
+        
+    }
+    else  command.action(parsedOptions, terminal);
 }
 
