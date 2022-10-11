@@ -42,6 +42,12 @@ export const helpCommand :CommandType = {
             return;
         }
 
+        // 有可能有子命令
+        if(Object.keys(command.subCommand).length>=1 && _.length>=2){
+            command = command.subCommand[_[1]]
+        }
+
+
         let output :OutputType[] = [
             {
                 type : "component",
