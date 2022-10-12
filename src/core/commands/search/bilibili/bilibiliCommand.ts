@@ -1,5 +1,5 @@
 import { CommandType } from "../../../command";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent ,shallowRef } from "vue";
 import OutputType = Terminal.OutputType;
 
 const baseUrl = "https://www.baidu.com/s";
@@ -37,13 +37,14 @@ const bilibiliCommand: CommandType = {
   ],
   subCommand:{},
   action(options, terminal) {
+    terminal.setCommandCollapsible(true)
     const { _, self, bvid } = options;
     // 优先打开视频
     if (bvid) {
       const output: OutputType[] = [
         {
           type: "component",
-          component: defineAsyncComponent(() => import("./bilibiliBox.vue")),
+          component: shallowRef(defineAsyncComponent(() => import("./bilibiliBox.vue"))),
           props: {
             bvid,
           },
