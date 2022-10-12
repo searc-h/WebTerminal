@@ -1,9 +1,9 @@
 <script setup lang="ts">
-
+import IndexPage from './pages/IndexPage.vue'
 </script>
 
 <template>
-  <RouterView />
+  <IndexPage/>
 </template>
 
 <style scoped>

@@ -39,6 +39,12 @@
 - Vue组件完成负责数据操作
 - Command命令完成数据展示
 
+### 11.初次体验讲前端项目Chorme插件化
+- 取消路由使用
+- 打包项目
+- dist文件下新增manifest.json文件
+- 配置manifest.json
+
 
 
 
