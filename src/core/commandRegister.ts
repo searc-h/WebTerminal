@@ -11,6 +11,7 @@ import { timingCommand } from "./commands/timing/timingCommand";
 import { musicCommand } from "./commands/relax/music/musicCommand";
 import { todoCommand } from "./commands/todo/todoCommand";
 import { websiteCommand } from "./commands/website/websiteCommand";
+import searchCommand from "./commands/search/searchCommand";
 const commandList :CommandType[] = [
     testCommand,
     historyCommand,
@@ -23,7 +24,8 @@ const commandList :CommandType[] = [
     timingCommand,
     musicCommand,
     todoCommand,
-    websiteCommand
+    websiteCommand,
+    ...searchCommand
 ]
 
 const commandMap : Record<string , CommandType> = {}
