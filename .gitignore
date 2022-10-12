@@ -11,11 +11,14 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+
 coverage
 *.local
 
 /cypress/videos/
 /cypress/screenshots/
+/dist.pem
+/dist.crx
 
 # Editor directories and files
 .vscode/*
