@@ -4,7 +4,7 @@ const githubCommand: CommandType = {
   func: "github",
   name: "GitHub 搜索",
   desc: "使用Github搜索结果",
-  alias: [],
+  alias: ["git"],
   params: [
     {
       key: "keyword",

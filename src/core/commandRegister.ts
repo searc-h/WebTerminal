@@ -12,20 +12,23 @@ import { musicCommand } from "./commands/relax/music/musicCommand";
 import { todoCommand } from "./commands/todo/todoCommand";
 import { websiteCommand } from "./commands/website/websiteCommand";
 import searchCommand from "./commands/search/searchCommand";
+import { fanyiCommand } from "./commands/fanyi/fanyiCommand";
 const commandList :CommandType[] = [
-    testCommand,
-    historyCommand,
-    clearCommand,
-    shortcutCommand,
-    helpCommand,
-    resetCommand,
     backgroundCommand,
+    ...searchCommand,
+    clearCommand,
+    fanyiCommand,
+    helpCommand,
     hintCommand,
-    timingCommand,
+    historyCommand,
     musicCommand,
+    resetCommand,
+    shortcutCommand,
+    testCommand,
+    timingCommand,
     todoCommand,
     websiteCommand,
-    ...searchCommand
+    
 ]
 
 const commandMap : Record<string , CommandType> = {}

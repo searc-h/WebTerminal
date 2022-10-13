@@ -228,7 +228,6 @@ const setCommandCollapsible = (collapsible: boolean) => {
 };
 
 
-
 const wrapperStyle = computed(() => {
     let {background} = TerminalStore()
         // 给元素设置样式
@@ -236,6 +235,9 @@ const wrapperStyle = computed(() => {
     };
     if (background.startsWith("http")) {
         style.background = `url(${background})`;
+        
+        style.backgroundRepeat = 'no-repeat';
+        style.backgroundSize =  'cover';
     } else {
         style.background = background;
     }
@@ -289,8 +291,6 @@ defineExpose({
     width: 100vw;
     height: 100vh;
     background-color: rgb(8, 8, 8);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .terminalInner {

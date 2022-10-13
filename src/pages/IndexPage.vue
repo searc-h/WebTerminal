@@ -1,5 +1,8 @@
 <template>
     <div class="index-page">
+        <div class="timing">
+            <Timing/>
+        </div>
         <Terminal 
             ref="terminalRef"
             full-screen
@@ -26,5 +29,19 @@ let onSubmitCommand =async (text :string )=>{
 
 </script>
 <style >
-    
+    .index-page{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+    }
+    .timing{
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        font-size: 20px;
+        color: #fff;
+        background-color: red;
+    }
 </style>

@@ -14,6 +14,7 @@ export const searchCommand : CommandType = {
     func : "search",
     desc : "搜索",
     name : "搜索",
+    alias:["s"],
     options : [
         {
             key:"from",

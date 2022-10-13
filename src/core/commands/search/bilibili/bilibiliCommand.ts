@@ -11,7 +11,7 @@ const baseUrl = "https://www.baidu.com/s";
 const bilibiliCommand: CommandType = {
   func: "bilibili",
   name: "bilibili 搜索",
-  alias: ["bzhan", "bili"],
+  alias: ["b", "bil"],
   desc :"使用bilibili搜索结果",
   params: [
     {
@@ -37,10 +37,12 @@ const bilibiliCommand: CommandType = {
   ],
   subCommand:{},
   action(options, terminal) {
-    terminal.setCommandCollapsible(true)
     const { _, self, bvid } = options;
     // 优先打开视频
     if (bvid) {
+      
+      terminal.setCommandCollapsible(true)
+
       const output: OutputType[] = [
         {
           type: "component",

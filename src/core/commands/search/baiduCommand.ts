@@ -8,6 +8,7 @@ const baiduCommand: CommandType = {
   func: "baidu",
   name: "百度搜索",
   desc:"使用百度搜索结果",
+  alias:["bd"],
   params: [
     {
       key: "keyword",
