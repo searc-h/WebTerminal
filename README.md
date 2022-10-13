@@ -8,6 +8,20 @@
 - [我的实现](https://github.com/searc-h/webTerminal)
 
 ## 学习心得
+### 0.env.d.ts
+```bash
+
+    /// <reference types="vite/client" />
+
+    // 为Vue文件生命类型模块，记住就行，这样在import vue组件时vscode不报错
+    declare module '*.vue' {
+        import type { DefineComponent } from 'vue'
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
+        const component: DefineComponent<{}, {}, any>
+        export default component
+    }
+```
+
 ### 1.Ts命名空间实现类型说明模块化 
 
 ### 2.antD-V的基本使用
