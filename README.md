@@ -59,6 +59,19 @@
 - dist文件下新增manifest.json文件
 - 配置manifest.json
 
+### 12.上传本地图片作为背景图片
+```bash
+    let imageObj = (img.files[0])
+    let fr = new FileReader() //异步读取文件对象
+
+    fr.readAsDataURL(imageObj)  //读取为data:url数据流
+    fr.onloadend = function(){
+        // 把base64数据存放到localStorage中
+        localStorage.setItem("imgBase",fr.result)
+    }
+
+```
+
 
 
 

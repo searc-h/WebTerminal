@@ -62,9 +62,9 @@ let changeImg = (event:any)=>{
             alert("选择的图片不能大于3M")
             return
         }
-        console.log(fr.result)
-        // 把base64数据存放到localStorage中
-        localStorage.setItem("imgBase",fr.result as string)
+        // console.log(fr.result)
+        // // 把base64数据存放到localStorage中
+        // localStorage.setItem("imgBase",fr.result as string)
 
         terminalStore.setBackground(fr.result as string)
 
