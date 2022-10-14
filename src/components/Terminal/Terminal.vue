@@ -234,11 +234,14 @@ const wrapperStyle = computed(() => {
     const style :StyleValue= {
     };
     if (background.startsWith("http")) {
-        style.background = `url(${background})`;
-        
+        style.backgroundImage = `url(${background})`;
+        style.backgroundPosition = "center center"
         style.backgroundRepeat = 'no-repeat';
         style.backgroundSize =  'cover';
-    } else {
+    }else if(background.startsWith("data:")){
+        style.backgroundImage = `url(${background})`;
+    } 
+    else {
         style.background = background;
     }
     return style;
@@ -290,7 +293,10 @@ defineExpose({
 .terminal-outer {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(8, 8, 8);
+    background: url("../../assets/乖jpg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .terminalInner {
