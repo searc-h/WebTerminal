@@ -219,6 +219,7 @@ let writeTextSuccessResult = (text :string) => {
     writeTextResult(text , "success")
 }
 let writeResult = (output: OutputType[] | ComponentOutputType[]) => {
+    console.log("output" , output)
     output.map((item)=>{
         currenCommand.resultList?.push(item)
     })

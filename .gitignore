@@ -20,6 +20,9 @@ coverage
 /dist.pem
 /dist.crx
 
+/server
+/server.zip
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

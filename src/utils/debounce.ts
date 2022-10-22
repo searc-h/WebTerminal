@@ -10,6 +10,6 @@ export const useDebounce = function debounce(func:any){
         clearTimeout(timer)
         timer = setTimeout(() => {
             func(text)
-        }, 500);
+        }, 200);
     }
 }

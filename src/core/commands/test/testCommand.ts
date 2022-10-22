@@ -42,7 +42,10 @@ const testCommand :CommandType= {
     action(options , terminal){
 
         const { _ , from, to , self } = options;
-
+        if(_.length < 1){
+            terminal.writeTextErrorResult("缺少必要参数")
+            return
+        }
         terminal.setCommandCollapsible(true)
         const output: ComponentOutputType[] =[
             {

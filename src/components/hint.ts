@@ -45,8 +45,6 @@ export const useHint = ()=>{
             hint.value = collateOptionAndParams(command)
         }
 
-        
-
     }
 
     let debouncesetHint = useDebounce(setHint)

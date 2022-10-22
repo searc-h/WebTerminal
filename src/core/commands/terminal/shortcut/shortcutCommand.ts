@@ -19,7 +19,7 @@ export const shortcutCommand :CommandType= {
         let output :OutputType[] = [
             {
                 type:"component",
-                component : shallowRef(defineAsyncComponent(()=>import("./ShortCut.vue"))),
+                component : shallowRef(defineAsyncComponent(()=>import("./shortcut.vue"))),
             },
         ]
         terminal.writeResult(output)

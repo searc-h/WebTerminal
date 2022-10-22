@@ -29,9 +29,10 @@ export const helpCommand :CommandType = {
                 {
                     type : "component",
                     component : shallowRef(defineAsyncComponent(()=>import('./helpBox.vue')))
-                }
+                },
             ] 
             terminal.writeResult(output)
+            terminal.writeTextSuccessResult("你可以尝试使用test来熟悉如何根据提示使用该指令")
             return
         }
 
@@ -56,10 +57,9 @@ export const helpCommand :CommandType = {
                 props:{
                     command
                 }
-            }
+            },
         ] 
         terminal.writeResult(output)
-
        
     }
 }
