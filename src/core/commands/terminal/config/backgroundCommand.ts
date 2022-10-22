@@ -28,8 +28,11 @@ export const backgroundCommand :CommandType = {
             return
         }
         if(_.length<1){
-            let result = await myAxios.post("/background/get/random")
-            TerminalStore.setBackground(result.data)
+            let result:any = await myAxios.get("/backgroundRandom")
+            if(result.error==0)
+                TerminalStore.setBackground(result.data)
+            else
+                terminal.writeTextErrorResult("获取失败")
         }
     }
 }

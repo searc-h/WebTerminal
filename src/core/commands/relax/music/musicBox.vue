@@ -26,7 +26,7 @@ let musicPath = ref<string>("")
 let errorHint = ref<string>("")
 onMounted(async ()=>{
     let result:any = await musicApi(musicName.value)
-    if(result.code == "0"){
+    if(result.error == 0){
         musicPath.value = `//music.163.com/outchain/player?type=2&id=${result.data.id}&auto=1&height=66`;
     }else{
         errorHint.value = "未找到音乐";

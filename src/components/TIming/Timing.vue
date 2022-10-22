@@ -23,7 +23,7 @@
             width="220px"
         >
             <div class="functions">
-                <input @change="changeImg" type="file" accept="image/gif,image/png" :style="{width:'100px' }">
+                <input @change="changeImg" type="file" accept="image/gif,image/png,image/jpg" :style="{width:'100px' }">
                 <a-button type="primary" @click="onClose">
                     <template #icon>
                         <CloseOutlined />

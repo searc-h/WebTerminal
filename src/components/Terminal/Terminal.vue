@@ -121,7 +121,7 @@ const outputList = ref<OutputType[]>([]);
 // 命令列表 -- 直接回车不加入到commandList中，不加入到历史记录
 const commandList = ref<CommandOutputType[]>([]);
 
-let currenCommand: OutputType
+let currenCommand = ref<OutputType>()
 
 let {
     currentCommandPos,
@@ -164,7 +164,7 @@ let doSubmitCommand = () => {
         text: inputingCommand.value.text,
         resultList: []
     }
-    currenCommand = output
+    currenCommand.value = output
 
     outputList.value.push(output)
 
@@ -209,7 +209,7 @@ let writeTextResult = (text:string , status?:OutputStatusType) => {
         status
     }
 
-    currenCommand.resultList?.push(newCommand)
+    currenCommand.value?.resultList?.push(newCommand)
 
 }
 let writeTextErrorResult = (text :string ) => {
@@ -221,11 +221,11 @@ let writeTextSuccessResult = (text :string) => {
 let writeResult = (output: OutputType[] | ComponentOutputType[]) => {
     console.log("output" , output)
     output.map((item)=>{
-        currenCommand.resultList?.push(item)
+        currenCommand.value?.resultList?.push(item)
     })
 }
 const setCommandCollapsible = (collapsible: boolean) => {
-    currenCommand.collapsible = collapsible;
+    (currenCommand.value as OutputType).collapsible = collapsible;
 };
 
 

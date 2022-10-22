@@ -19,14 +19,15 @@ export const fanyiCommand : CommandType = {
             key :"from",
             type:"string",
             alias:["f"],
-            desc:"源语言",
-            defaultValue:"zn"
+            desc:"源语言 默认en ",
+            defaultValue:"en"
         },
         {
             key :"to",
             type:"string",
             alias:["t"],
-            desc:"目标语言"
+            desc:"目标语言 默认zh",
+            defaultValue:"zh"
         }
     ],
     subCommand:{},
@@ -44,11 +45,11 @@ export const fanyiCommand : CommandType = {
         let config = {from , to}
 
         const res: any = await fanyiApi(keyword, config);
-        
-        if (res?.code === 0) {
+
+        if (res?.error == 0) {
             terminal.writeTextSuccessResult(
-              `翻译结果：${res.data.trans_result[0].dst}`
-            );
+                `翻译结果：${res.data.trans_result[0].dst}`
+                );
         } else {
             terminal.writeTextErrorResult(res?.message ?? "翻译失败");
         }

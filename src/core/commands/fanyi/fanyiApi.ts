@@ -6,7 +6,7 @@ export const fanyiApi = async (keyword:String , config:Record<string, string>)=>
     }
 
     return await myAxios({
-        url:"/fanyi/translate",
+        url:"/fanyi",
         method:"post",
         data:{
             keywords:keyword,
