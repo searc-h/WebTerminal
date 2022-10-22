@@ -32,7 +32,7 @@ export const helpCommand :CommandType = {
                 },
             ] 
             terminal.writeResult(output)
-            terminal.writeTextSuccessResult("你可以尝试使用test来熟悉如何根据提示使用该指令")
+            terminal.writeTextResult("你可以尝试使用test来熟悉如何根据提示使用该指令" , "info")
             return
         }
 

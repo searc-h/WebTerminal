@@ -282,6 +282,7 @@ onMounted(() => {
     terminal.immediatelyWriteText("This web Terminal is Just mean To improve My coding Level and For fun")
     terminal.immediatelyWriteText("And you can Learn more From YuIndex <a href='https://github.com/liyupi/yuindex'>Github Address</a>")
     terminal.immediatelyWriteText("And you can Also find Some differences From WebTerminal <a href='https://github.com/searc-h/webTerminal'>Github Address</a>")
+    terminal.immediatelyWriteText("You can click The Time Block to change The Background-Image if you wany")
     changePlaceholder()
 })
 
@@ -294,7 +295,6 @@ defineExpose({
 .terminal-outer {
     width: 100vw;
     height: 100vh;
-    background: url("../../assets/乖jpg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

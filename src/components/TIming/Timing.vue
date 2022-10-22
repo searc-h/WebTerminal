@@ -7,9 +7,8 @@
         borderRadius: '2px',
         padding: '20px',
         }">
-            
         <div class="timeCurrent" @click="showDrawer">
-            {{currenTime}}
+            {{currenTime}} 
         </div>
 
         <a-drawer
@@ -24,7 +23,7 @@
             width="220px"
         >
             <div class="functions">
-                <input @change="changeImg" type="file" :style="{width:'100px' }">
+                <input @change="changeImg" type="file" accept="image/gif,image/png" :style="{width:'100px' }">
                 <a-button type="primary" @click="onClose">
                     <template #icon>
                         <CloseOutlined />
