@@ -6,6 +6,7 @@
 ## 灵感来源
 - [鱼皮程序员](https://github.com/liyupi/yuindex)
 - [我的实现](https://github.com/searc-h/webTerminal)
+- [在线体验](http://116.205.128.108:8002/)
 
 ## 学习心得
 ### 0.env.d.ts
